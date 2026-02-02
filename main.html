@@ -1,228 +1,204 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pierwsza pomoc</title>
-  <link rel="stylesheet" href="styl.css"/>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynkowe pytanie ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            position: relative;
+            min-height: 60px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+            color: #555;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .success {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .success h2 {
+            font-size: 3em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .success .hearts {
+            font-size: 3em;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<div class="background"></div>
-<header>
-   <div id="nagłówek">
-  <img src="hufiec.png" alt="Logo Hufca" id="logo"/>
-    <h1>Pierwsza pomoc</h1>
-</div>
-  <nav>
-    <a href="#sekcja1">Podstawy</a>
-    <a href="#sekcja2">Nagłe wypadki</a>
-    <a href="#sekcja3">Apteczka</a>
-    <a href="#sekcja4">Numery alarmowe</a>
-    <a href="#sekcja5">Quiz</a>
-</nav>
-
-</header>
-<main>
-<section id="sekcja1">
-  <h2>Podstawy pierwszej pomocy</h2>
-  <p><strong>Pierwsza pomoc</strong> to natychmiastowa reakcja na sytuację zagrożenia życia lub zdrowia. Celem jest utrzymanie funkcji życiowych oraz ograniczenie skutków urazów przed przybyciem służb ratunkowych.</p>
-
-  <h3>Podstawowe zasady pierwszej pomocy:</h3>
-  <ol>
-    <li><strong>Zapewnienie bezpieczeństwa</strong><br/>
-    Sprawdź, czy miejsce zdarzenia jest bezpieczne. Jeśli to konieczne, zabezpiecz teren i załóż rękawiczki.</li>
-
-    <li><strong>Ocena stanu poszkodowanego</strong><br/>
-    Sprawdź przytomność (potrząśnij, zapytaj). Jeśli nie reaguje, sprawdź oddech i krążenie. Gdy nie oddycha – rozpocznij RKO.</li>
-
-    <li><strong>Wezwanie pomocy – numer 112</strong><br/>
-    Podaj: lokalizację, liczbę poszkodowanych, ich stan, oraz co się stało.</li>
-
-    <li><strong>Udzielenie pomocy</strong><br/>
-    W miarę możliwości zatamuj krwawienie, wykonaj RKO, użyj AED, ułóż w bezpiecznej pozycji.</li>
-  </ol>
-
-  <p>Każdy może uratować życie – liczy się opanowanie, szybka decyzja i podstawowa wiedza!</p>
-</section>
-<section id="sekcja2">
-  <h2>Postępowania w nagłych wypadkach</h2>
-  <p>W zależności od sytuacji, należy odpowiednio reagować. Poniżej przykłady najczęstszych zdarzeń i działań:</p>
-
-  <ul>
-    <li><strong>Omdlenie:</strong> ułóż osobę na plecach, unieś nogi, zapewnij dopływ świeżego powietrza. Jeśli nie odzyskuje przytomności – sprawdź oddech i rozpocznij RKO.</li>
-
-    <li><strong>Krwotok:</strong> uciskaj ranę jałowym opatrunkiem lub czystym materiałem. Nie zdejmuj raz założonego opatrunku – w razie potrzeby dołóż kolejny.</li>
-
-    <li><strong>Oparzenia:</strong> chłodź miejsce zimną wodą przez minimum 10 minut. Nie przebijaj pęcherzy, nie smaruj tłuszczem.</li>
-
-    <li><strong>Zatrzymanie oddechu – RKO (Resuscytacja Krążeniowo-Oddechowa):</strong>
-      <p><strong>Krok po kroku:</strong></p>
-      <ol>
-        <li>Sprawdź przytomność i oddech (max. 10 sek.).</li>
-        <li>Jeśli brak oddechu – zadzwoń pod 112 i poproś o AED.</li>
-        <li>Uklęknij obok poszkodowanego, połóż nadgarstek jednej dłoni na środku klatki piersiowej, drugą dłoń połóż na pierwszej i spleć palce.</li>
-        <li>Wykonaj 30 uciśnięć klatki piersiowej:
-          <ul>
-            <li>Głębokość: 5–6 cm</li>
-            <li>Tempo: 100–120 uciśnięć/min</li>
-            <li>Po każdym uciśnięciu pozwól klatce się unieść</li>
-          </ul>
-        </li>
-        <li>Po 30 uciśnięciach wykonaj 2 oddechy ratownicze:
-          <ul>
-            <li>Odchyl głowę do tyłu, unieś brodę</li>
-            <li>Zatkaj nos, szczelnie obejmij usta poszkodowanego</li>
-            <li>Wdmuchnij powietrze przez 1 sek., aż do uniesienia klatki piersiowej</li>
-          </ul>
-        </li>
-        <li>Kontynuuj cykl 30:2 (ucisk:oddech) aż do przyjazdu pomocy lub odzyskania oznak życia.</li>
-      </ol>
-      <p><strong>AED – Automatyczny Defibrylator Zewnętrzny:</strong> Jeśli jest dostępny, włącz urządzenie i postępuj zgodnie z komendami głosowymi. AED analizuje rytm serca i instruuje, kiedy wykonać defibrylację. Jest bezpieczny nawet dla osób bez przeszkolenia.</p>
-    </li>
-  </ul>
-</section>
-<section id="sekcja3">
-  <h2>Apteczka i jej zawartość</h2>
-  <p>Apteczka pierwszej pomocy to niezbędne wyposażenie każdego domu, pojazdu, szkoły i miejsca pracy. Zawiera środki potrzebne do zabezpieczenia urazów, zatamowania krwawienia i ochrony osoby poszkodowanej do czasu przyjazdu służb ratunkowych.</p>
-
-  <h3>Podstawowe wyposażenie apteczki:</h3>
-  <ul>
-    <li>Rękawiczki jednorazowe</li>
-    <li>Gazy jałowe i kompresy</li>
-    <li>Bandaże (różne rodzaje – opis poniżej)</li>
-    <li>Chusty trójkątne</li>
-    <li>Plastry (z opatrunkiem i bez)</li>
-    <li>Środek do dezynfekcji ran (np. Octenisept)</li>
-    <li>Nożyczki, agrafki</li>
-    <li>Koc ratunkowy (folia NRC)</li>
-    <li>Instrukcja udzielania pierwszej pomocy</li>
-  </ul>
-  <h3>Rodzaje apteczek:</h3>
-  <ul>
-    <li><strong>Apteczka domowa:</strong> podstawowe środki opatrunkowe, środki przeciwbólowe i leki codziennego użytku.</li>
-    <li><strong>Apteczka samochodowa:</strong> zawiera elementy pozwalające udzielić pomocy na drodze – opatrunki, rękawiczki, kamizelka odblaskowa, czasem trójkąt.</li>
-    <li><strong>Apteczka turystyczna:</strong> lekka i poręczna, powinna zawierać środki do dezynfekcji, plastry, bandaże, środek na ukąszenia, filtr UV, leki przeciwbólowe.</li>
-    <li><strong>Apteczka zakładowa:</strong> dostosowana do przepisów BHP, zawiera zestaw pierwszej pomocy dla większej liczby osób, czasem oczomyjki, opaski uciskowe.</li>
-    <li><strong>Apteczka szkolna/harcerska:</strong> rozszerzona wersja apteczki osobistej – większa ilość materiałów opatrunkowych, więcej rękawiczek, maseczki ochronne.</li>
-  </ul>
-
-  <h3>Rodzaje bandaży:</h3>
-  <ul>
-    <li><strong>Bandaż dziany (elastyczny):</strong> służy do podtrzymywania opatrunków, elastyczny, dobrze dopasowuje się do kształtu ciała.</li>
-    <li><strong>Bandaż tkany (nierozciągliwy):</strong> do mocowania opatrunków lub unieruchamiania, mniej elastyczny, bardziej stabilny.</li>
-    <li><strong>Bandaż kohezyjny (samoprzylepny):</strong> przylega do siebie bez kleju, nie przylepia się do skóry ani włosów – idealny np. przy urazach sportowych.</li>
-    <li><strong>Bandaż uciskowy:</strong> używany w przypadku intensywnego krwawienia, umożliwia silniejszy ucisk i kontrolę krwotoku.</li>
-    <li><strong>Bandaż elastyczny siatkowy:</strong> siateczka służąca do przytrzymania opatrunku w trudno dostępnych miejscach (np. głowa, stawy, palce).</li>
-  </ul>
-
-  
-  <p><strong>Uwaga:</strong> Regularnie sprawdzaj zawartość apteczki i wymieniaj zużyte lub przeterminowane materiały.</p>
-</section>
-
-<section id="sekcja4">
-  <h2>Numery alarmowe</h2>
-  <ul>
-    <li><strong>112</strong> – numer ogólny (działa w całej UE, z każdego telefonu)</li>
-    <li><strong>999</strong> – pogotowie ratunkowe</li>
-    <li><strong>998</strong> – straż pożarna</li>
-    <li><strong>997</strong> – policja</li>
-  </ul>
-  <p>W przypadku zagrożenia zawsze dzwoń na 112. Operator przekieruje do odpowiednich służb.</p>
-</section>
-
-<section id="sekcja5">
-  <h2>Quiz</h2>
-<p>Sprawdź swoją wiedzę na temat pierwszej pomocy!</p>
-  <div id="quiz-wrapper">
-    <button id="start-quiz">Rozpocznij quiz</button>
-
-    <div id="quiz-box" style="display: none;">
-      <div id="quiz-content"></div>
-      <button id="show-results">Pokaż wyniki</button>
+    <div class="container">
+        <div id="question">
+            <div class="emoji">💝</div>
+            <h1>Czy chcesz zostać moją walentynką?</h1>
+            <div class="buttons">
+                <button id="yesBtn">Tak! ❤️</button>
+                <button id="noBtn">Nie</button>
+            </div>
+        </div>
+        
+        <div id="success" class="success">
+            <h2>Yey! 🎉</h2>
+            <div class="hearts">❤️💕💖💗💓</div>
+            <p style="font-size: 1.5em; margin-top: 20px; color: #e74c3c;">Będzie wspaniale! 😊</p>
+        </div>
     </div>
 
-    <div id="quiz-result" style="display: none;"></div>
-    <button id="retry-btn" style="display: none;">Rozwiąż ponownie</button>
-  </div>
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const question = document.getElementById('question');
+        const success = document.getElementById('success');
 
-  <script>
-    const questions = [
-      { q: "Jaki jest numer alarmowy pogotowia ratunkowego?", o: ["112", "997", "998", "999"], a: 3 },
-      { q: "Co należy zrobić najpierw przy omdleniu?", o: ["Podnieść nogi i ułożyć na wznak", "Podać wodę", "Klepnąć w policzek", "Zostawić osobę w spokoju"], a: 0 },
-      { q: "Czym zabezpieczysz ranę?", o: ["Folią aluminiową", "Gazą jałową", "Ręcznikiem papierowym", "Szmatą"], a: 1 },
-      { q: "Co powinno znajdować się w apteczce?", o: ["Nożyczki, rękawiczki, bandaże", "Kawa, cukier, aspiryna", "Młotek, gwóźdź", "Termometr rtęciowy"], a: 0 },
-      { q: "Co oznacza skrót RKO?", o: ["Resuscytacja Krótkookresowa", "Resuscytacja Krążeniowo-Oddechowa", "Ruchowa Koordynacja Ogólna", "Ratownictwo Kryzysowe Ogólne"], a: 1 },
-      { q: "Ile uciśnięć klatki piersiowej wykonuje się przy RKO?", o: ["15", "20", "30", "40"], a: 2 },
-      { q: "Czy można używać AED bez przeszkolenia?", o: ["Nie", "Tak", "Tylko lekarz", "Tylko ratownik"], a: 1 },
-      { q: "Jakie środki ochrony osobistej należy używać przy udzielaniu pomocy?", o: ["Tylko maseczka", "Rękawiczki jednorazowe", "Okulary przeciwsłoneczne", "Brak"], a: 1 },
-      { q: "Jaka jest kolejność działań w pierwszej pomocy?", o: ["Wezwać pomoc, ocenić stan, udzielić pomocy", "Pomóc, wezwać pomoc, ocenić", "Uciekać", "Zrobić zdjęcie"], a: 0 },
-      { q: "Ile jest podstawowych etapów RKO?", o: ["1", "2", "3", "4"], a: 2 }
-    ];
-
-    const startBtn = document.getElementById("start-quiz");
-    const quizBox = document.getElementById("quiz-box");
-    const quizContent = document.getElementById("quiz-content");
-    const showBtn = document.getElementById("show-results");
-    const resultBox = document.getElementById("quiz-result");
-    const retryBtn = document.getElementById("retry-btn");
-
-    startBtn.onclick = () => {
-      quizBox.style.display = "block";
-      resultBox.style.display = "none";
-      retryBtn.style.display = "none";
-      startBtn.style.display = "none";
-      quizContent.innerHTML = "";
-
-      questions.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.innerHTML = `<p><strong>${i + 1}. ${q.q}</strong></p>`;
-        q.o.forEach((opt, j) => {
-          div.innerHTML += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`;
+        // Funkcja do ucieczki przycisku "Nie"
+        noBtn.addEventListener('mouseenter', function() {
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Losowe współrzędne w obrębie kontenera
+            const maxX = containerRect.width - noBtn.offsetWidth - 40;
+            const maxY = 200; // Ograniczamy wysokość, żeby przycisk nie wyszedł za daleko
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY - 100;
+            
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
         });
-        quizContent.appendChild(div);
-      });
-    };
 
-    showBtn.onclick = () => {
-      let score = 0;
-      questions.forEach((q, i) => {
-        const ans = document.querySelector(`input[name="q${i}"]:checked`);
-        if (ans && parseInt(ans.value) === q.a) score++;
-      });
+        // Obsługa kliknięcia "Tak"
+        yesBtn.addEventListener('click', function() {
+            question.classList.add('hidden');
+            success.style.display = 'block';
+            
+            // Efekt confetti (opcjonalnie)
+            createHearts();
+        });
 
-      const percent = Math.round((score / questions.length) * 100);
-      quizBox.style.display = "none";
-      resultBox.style.display = "block";
-      resultBox.innerHTML = `Twój wynik: ${score}/${questions.length} (${percent}%)`;
-      retryBtn.style.display = "block";
-    };
-
-    retryBtn.onclick = () => {
-      startBtn.style.display = "block";
-      resultBox.style.display = "none";
-      retryBtn.style.display = "none";
-    };
-  </script>
-</section>
-  <section id="sekcja6">
-  <h2>Twoja opinia</h2>
-  <p>Masz sugestie lub przemyślenia dotyczące strony? Prześlij nam swoją opinię – Twoje zdanie jest dla nas ważne!</p>
-  
-  <form method="post" id="opinia-form">
-    <label for="name">Imię i nazwisko:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="comment">Treść komentarza:</label><br>
-    <textarea id="comment" name="comment" rows="5" required></textarea><br><br>
-
-    <button type="submit" name="opinia" id="opinia">Wyślij opinię</button>
-  </form>
-</section>
-</main>
-<footer>
-  <p>Stronę wykonała Yana Prokaza © 2025</p>
-</footer>
+        // Funkcja tworząca spadające serduszka
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '-50px';
+                    heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    heart.style.opacity = '0.8';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    document.body.appendChild(heart);
+                    
+                    let pos = -50;
+                    const fallSpeed = Math.random() * 3 + 2;
+                    const swing = Math.random() * 100 - 50;
+                    
+                    const fall = setInterval(() => {
+                        pos += fallSpeed;
+                        heart.style.top = pos + 'px';
+                        heart.style.left = (parseFloat(heart.style.left) + Math.sin(pos / 30) * 0.5) + '%';
+                        
+                        if (pos > window.innerHeight) {
+                            clearInterval(fall);
+                            heart.remove();
+                        }
+                    }, 20);
+                }, i * 100);
+            }
+        }
+    </script>
 </body>
 </html>
