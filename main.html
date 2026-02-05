@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walentynkowe pytanie ❤️</title>
+    <title>Małe pytanko</title>
     <style>
         * {
             margin: 0;
@@ -125,7 +125,7 @@
     <div class="container">
         <div id="intro">
             <div class="emoji">💌</div>
-            <h1>Hej, mam do Ciebie pytanko...</h1>
+            <h1>Hej Miśka, mam do Ciebie pytanko...</h1>
             <p style="font-size: 1.2em; color: #8b5a5a; margin-top: 20px;">Chcesz wiedzieć jakie?</p>
             <div class="buttons" style="min-height: 60px;">
                 <button id="introYesBtn">Tak</button>
@@ -134,17 +134,17 @@
         
         <div id="question" class="hidden">
             <div class="emoji">💝</div>
-            <h1>Czy chcesz zostać moją walentynką?</h1>
+            <h1>Czy chcesz zostać moją walentynką? :></h1>
             <div class="buttons">
-                <button id="yesBtn">Tak! ❤️</button>
-                <button id="noBtn">Nie</button>
+                <button id="yesBtn">Tak!</button>
+                <button id="noBtn">Nie!</button>
             </div>
         </div>
         
         <div id="success" class="success">
             <h2>Yey! 🎉</h2>
             <div class="hearts">❤️💕💖💗💓</div>
-            <p>Będzie wspaniale! 😊</p>
+            <p>BKocham Cię Miśka hihiih</p>
         </div>
     </div>
 
@@ -156,21 +156,20 @@
         const question = document.getElementById('question');
         const success = document.getElementById('success');
 
-        // Obsługa przejścia z intro do pytania
+    
         introYesBtn.addEventListener('click', function() {
             intro.classList.add('hidden');
             question.classList.remove('hidden');
         });
 
-        // Funkcja do ucieczki przycisku "Nie"
         let isEscaping = false;
-        let buttonScale = 1; // Skala przycisku
+        let buttonScale = 1; 
         
         function escapeFromCursor(e) {
             if (!isEscaping) {
                 isEscaping = true;
                 
-                // Ustawiamy pozycję absolutną jeśli jeszcze nie jest
+           
                 if (noBtn.style.position !== 'absolute') {
                     noBtn.style.position = 'absolute';
                 }
@@ -179,23 +178,19 @@
                 const containerRect = container.getBoundingClientRect();
                 const btnRect = noBtn.getBoundingClientRect();
                 
-                // Pozycja kursora względem kontenera
                 const mouseX = e.clientX - containerRect.left;
                 const mouseY = e.clientY - containerRect.top;
                 
-                // Pozycja środka przycisku
                 const btnCenterX = btnRect.left - containerRect.left + btnRect.width / 2;
                 const btnCenterY = btnRect.top - containerRect.top + btnRect.height / 2;
                 
-                // Wektor od kursora do przycisku
                 const dx = btnCenterX - mouseX;
                 const dy = btnCenterY - mouseY;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                // Jeśli kursor jest blisko, uciekamy w przeciwnym kierunku
                 if (distance < 120) {
-                    // Zmniejszamy przycisk za każdym razem
-                    buttonScale = Math.max(0.3, buttonScale - 0.1); // Nie mniejszy niż 30% oryginalnego rozmiaru
+              
+                    buttonScale = Math.max(0.3, buttonScale - 0.1); 
                     noBtn.style.transform = `scale(${buttonScale})`;
                     
                     const escapeDistance = 180;
@@ -204,14 +199,12 @@
                     let newX = btnCenterX + Math.cos(angle) * escapeDistance - btnRect.width / 2;
                     let newY = btnCenterY + Math.sin(angle) * escapeDistance - btnRect.height / 2;
                     
-                    // Ograniczenia, żeby nie wyszedł poza kontener
                     const maxX = containerRect.width - btnRect.width - 20;
                     const maxY = 250;
                     
                     newX = Math.max(20, Math.min(newX, maxX));
                     newY = Math.max(-20, Math.min(newY, maxY));
                     
-                    // Jeśli przycisk jest zablokowany przy krawędzi, przenieś go na przeciwną stronę
                     if (Math.abs(newX - parseFloat(noBtn.style.left || 0)) < 10 && 
                         Math.abs(newY - parseFloat(noBtn.style.top || 0)) < 10) {
                         newX = maxX - newX;
@@ -226,22 +219,17 @@
             }
         }
         
-        // Nasłuchujemy ruchu myszy w całym kontenerze
         document.querySelector('.container').addEventListener('mousemove', escapeFromCursor);
         
-        // Dodatkowe nasłuchiwanie bezpośrednio na przycisku
         noBtn.addEventListener('mouseenter', escapeFromCursor);
 
-        // Obsługa kliknięcia "Tak"
         yesBtn.addEventListener('click', function() {
             question.classList.add('hidden');
             success.style.display = 'block';
             
-            // Efekt confetti (opcjonalnie)
             createHearts();
         });
 
-        // Funkcja tworząca spadające serduszka
         function createHearts() {
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
